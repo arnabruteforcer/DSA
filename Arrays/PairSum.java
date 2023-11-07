@@ -15,6 +15,7 @@ public static List<int[]> pairSum(int[] arr, int s) {
 
         // Time - O(n)
         for(int i=0; i<arr.length; i++) {
+            // check if the differnece from sum exits in map, that means we have a pair with sum equals target    
             if(numbers.containsKey(s-arr[i])) {
                 int[] pair = new int[2];
                 pair[0] = arr[i];
@@ -25,11 +26,12 @@ public static List<int[]> pairSum(int[] arr, int s) {
                     pair[0] = pair[1];
                     pair[1] = temp;
                 }
-                // add the numbers x number of times
+                // add the number can have multiple occurences, all such pairs needs to be added
                 for(int j=1; j<=numbers.get(s-arr[i]); j++) {
                     pairs.add(pair);
                 }
             }
+            // add the number to the map, if it exists increase it occcurence count 
             numbers.put(arr[i], 
                 numbers.getOrDefault(arr[i],0) + 1);
         }
@@ -56,5 +58,5 @@ public static List<int[]> pairSum(int[] arr, int s) {
         return pairs;
     }
     // Time complexity = O(n) + O(nlogn)
-    // Space complexity = O(pairs)
+    // Space complexity = O(pairs) = O(n)
 }
