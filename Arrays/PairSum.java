@@ -1,10 +1,12 @@
 /** Problem Statement
 
 You are given an array of numbers and a target 'S'. You need to find all pairs which sum up to
-the target.
+the target. The pairs should be sorted in non decreasing order. Also, the result should be 
+in non decreasing order
 
 **/
 
+// Approach 2 
 public static List<int[]> pairSum(int[] arr, int s) {
         ArrayList<int[]> pairs = new ArrayList<>();
         
@@ -53,6 +55,6 @@ public static List<int[]> pairSum(int[] arr, int s) {
         });
         return pairs;
     }
-    // Time complexity = O(n^2) + O(nlogn)
+    // Time complexity = O(n) + O(nlogn)
     // Space complexity = O(pairs)
 }
