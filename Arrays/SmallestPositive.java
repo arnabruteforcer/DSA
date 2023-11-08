@@ -15,7 +15,7 @@ public class Solution {
 			// if the number is present we increment the counter to the next +ve 
 			if(arr[i] == smallestPositive) {
 				smallestPositive++;
-			// if the next available number is not present and we exceed it,
+			// if the next +ve number is not present in array and we exceed it,
 			// we return the number 	
 			} else if (arr[i] > smallestPositive) {
 				break;
