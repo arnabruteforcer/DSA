@@ -89,7 +89,7 @@ public class Solution {
 		return arr;
 	}
 
-
+        // helper method for converting array of numbers to string
 	private static String convertArrToString(int[] arr) {
 		StringBuilder result = new StringBuilder();
 		for(int val : arr) {
