@@ -59,7 +59,7 @@ public class Solution {
 	
 	1) The second approach involves taking the transpose as the 1st step
 
-	2) The 2nd step includes column reversal
+	2) The 2nd step includes row reversal
 	
 	**/
 	public static void inplaceRotateUsingTranspose(int[][] arr, int n) {
