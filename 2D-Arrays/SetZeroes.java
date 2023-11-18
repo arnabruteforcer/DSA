@@ -118,7 +118,71 @@ public static void setZerosApproachTwo(int matrix[][]) {
     }
 
     // Time complexity - O(m * n)
-    // Space complexity - O(m + n)    
+    // Space complexity - O(m + n)
+
+
+
+
+    public static void setZerosOptimalSpace(int matrix[][]) {
+        // 'n' rows
+        int n = matrix.length;
+        // 'm' columns
+        int m = matrix[0].length;
+
+        // boolean values for taking care of first column or row
+        boolean firstCol = false;
+        boolean firstRow = false;
+
+        // instead of using external space for storing the rows and columns
+        // we can set the first column and first row as 0 as that will always be set to zero
+        // in future
+        for(int i=0; i<n; i++) {
+            for(int j=0; j<m; j++) {
+                // if the element is zero,
+                // set matrix[0][j] = 0  and matrix[i][0] = 0
+                if(matrix[i][j] == 0) {
+                    if(j == 0) {
+                        firstCol = true;
+                    }
+                    if( i == 0) {
+                        firstRow = true;
+                    }
+                    matrix[i][0] = 0;
+                    matrix[0][j] = 0;
+                }
+            }
+        }
+
+        // once the row and column is set, the entire row and column needs to be set as zero
+        for(int i=1; i<n; i++) {
+            for(int j=1; j<m; j++) {
+                // if the corresponding row or the column is 0, it  is set to 0
+                if(matrix[i][0] == 0 || matrix[0][j] == 0) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+
+        // if any of the values is 0 in the first row , set entire row as 0
+        if(firstRow) {
+            for(int k=0; k<m; k++) {
+                matrix[0][k] = 0;
+            }
+        }
+
+
+        // if any of the column values is 0. in first column, 
+        // set the entire column as 0
+        if( firstCol ) {
+            for(int k=0; k<n; k++) {
+                matrix[k][0] = 0;
+            }
+        }
+
+    }
+
+    // Time complexity - O(m * n)
+    // Space complexity - O(1)
   
 
     
