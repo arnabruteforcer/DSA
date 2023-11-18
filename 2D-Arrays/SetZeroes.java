@@ -67,6 +67,58 @@ public class Solution {
 
     }
 
+
+
+    
+public static void setZerosApproachTwo(int matrix[][]) {
+        
+        // 'n' rows
+        int n = matrix.length;
+        // 'm' columns
+        int m = matrix[0].length;
+
+        // a hashet to store the unique row indexes which are to be set to zero
+        boolean[] rowSet = new boolean[n];
+
+        // a hashet to store the unique column indexes which are to be set to zero
+        boolean[] columnSet = new boolean[m];
+
+        // set the rows and columns which are 0
+        // Time - O(m * n)
+        for(int i=0; i<n; i++) {
+            for(int j=0; j<m; j++) {
+                if(matrix[i][j] == 0) {
+                    rowSet[i] = true;
+                    columnSet[j] = true;
+                }
+            }
+        }
+
+        // set all the rows to zero
+        // Time - O(n * m)
+        for(int i=0; i<rowSet.length; i++) {
+            if(rowSet[i]) {
+                // set entire row to 0
+                for(int j = 0 ;j<m; j++) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+
+        // set all column values to 0
+        // Time - O( n * m)
+        for(int i=0; i<columnSet.length; i++) {
+            if(columnSet[i]) {
+                // set entire column to 0
+                for(int j = 0 ;j<n; j++) {
+                    matrix[j][i] = 0;
+                }
+            }
+        }   
+    }
+
+    // Time complexity - O(m * n)
+    // Space complexity - O(m + n)    
   
 
     
